@@ -1,0 +1,155 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@libs/config": [
+        "libs/config/src"
+      ],
+      "@libs/config/*": [
+        "libs/config/src/*"
+      ],
+      "@libs/privatbank": [
+        "libs/privatbank/src"
+      ],
+      "@libs/privatbank/*": [
+        "libs/privatbank/src/*"
+      ],
+      "@libs/monobank": [
+        "libs/monobank/src"
+      ],
+      "@libs/monobank/*": [
+        "libs/monobank/src/*"
+      ],
+      "@libs/http": [
+        "libs/http/src"
+      ],
+      "@libs/http/*": [
+        "libs/http/src/*"
+      ],
+      "@libs/telegram": [
+        "libs/telegram/src"
+      ],
+      "@libs/telegram/*": [
+        "libs/telegram/src/*"
+      ],
+      "@libs/common": [
+        "libs/common/src"
+      ],
+      "@libs/common/*": [
+        "libs/common/src/*"
+      ],
+      "@libs/db": [
+        "libs/db/src"
+      ],
+      "@libs/db/*": [
+        "libs/db/src/*"
+      ],
+      "@libs/prisma": [
+        "libs/prisma/src"
+      ],
+      "@libs/prisma/*": [
+        "libs/prisma/src/*"
+      ],
+      "@libs/transaction": [
+        "libs/transaction/src"
+      ],
+      "@libs/transaction/*": [
+        "libs/transaction/src/*"
+      ],
+      "@libs/transaction-adapter": [
+        "libs/transaction-adapter/src"
+      ],
+      "@libs/transaction-adapter/*": [
+        "libs/transaction-adapter/src/*"
+      ],
+      "@libs/cache": [
+        "libs/cache/src"
+      ],
+      "@libs/cache/*": [
+        "libs/cache/src/*"
+      ],
+      "@libs/inquiry": [
+        "libs/inquiry/src"
+      ],
+      "@libs/inquiry/*": [
+        "libs/inquiry/src/*"
+      ],
+      "@libs/user": [
+        "libs/user/src"
+      ],
+      "@libs/user/*": [
+        "libs/user/src/*"
+      ],
+      "@libs/auth": [
+        "libs/auth/src"
+      ],
+      "@libs/auth/*": [
+        "libs/auth/src/*"
+      ],
+      "@libs/guard": [
+        "libs/guard/src"
+      ],
+      "@libs/guard/*": [
+        "libs/guard/src/*"
+      ],
+      "@libs/error": [
+        "libs/error/src"
+      ],
+      "@libs/error/*": [
+        "libs/error/src/*"
+      ],
+      "@libs/encryption": [
+        "libs/encryption/src"
+      ],
+      "@libs/encryption/*": [
+        "libs/encryption/src/*"
+      ],
+      "@libs/department": [
+        "libs/department/src"
+      ],
+      "@libs/department/*": [
+        "libs/department/src/*"
+      ],
+      "@libs/status": [
+        "libs/status/src"
+      ],
+      "@libs/status/*": [
+        "libs/status/src/*"
+      ],
+      "@libs/media": [
+        "libs/media/src"
+      ],
+      "@libs/media/*": [
+        "libs/media/src/*"
+      ],
+      "@libs/solution": [
+        "libs/solution/src"
+      ],
+      "@libs/solution/*": [
+        "libs/solution/src/*"
+      ],
+      "@libs/admin": [
+        "libs/admin/src"
+      ],
+      "@libs/admin/*": [
+        "libs/admin/src/*"
+      ]
+    }
+  }
+}

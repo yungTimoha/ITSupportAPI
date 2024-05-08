@@ -1,0 +1,147 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  User
+  Admin
+  Analyst
+  Pm
+}
+
+enum InquiryStatus {
+  New
+  Processing
+  Resolved
+  Canceled
+}
+
+enum Priority {
+  Low
+  Mid
+  High
+}
+
+enum Department {
+  Technical
+  Finance
+  Quality
+}
+
+enum Category {
+  WebsiteError
+  ApplicationError
+  Analytic
+  WebsiteQuestion
+  ApplicationQuestion
+  NewFeature
+  Other
+}
+
+enum MediaType {
+  image
+  video
+}
+
+model User {
+  id            String    @id @default(uuid())
+  name          String?
+  age           String?
+  email         String    @unique()
+  password      String
+  role          UserRole  @default(value: User)
+  secret        String    @default(uuid())
+  department_id String?
+  created_at    DateTime  @default(now())
+  inquiry       Inquiry[]
+
+  @@map("user")
+}
+
+model Media {
+  id         String    @id @default(uuid())
+  src        String
+  type       MediaType
+  created_at DateTime  @default(now())
+
+  @@map("media")
+}
+
+model Inquiry {
+  id               String          @id @default(uuid())
+  content          String
+  user_id          String
+  user             User            @relation(fields: [user_id], references: [id])
+  status           InquiryStatus   @default(value: New)
+  priority         Priority        @default(value: Mid)
+  department       Department      @default(value: Quality)
+  category         Category
+  created_at       DateTime        @default(now())
+  solution         Solution[]
+  InquiryStatusT   InquiryStatusT? @relation(fields: [inquiryStatusTId], references: [id])
+  inquiryStatusTId String?
+  PriorityT        PriorityT?      @relation(fields: [priorityTId], references: [id])
+  priorityTId      String?
+  DepartmentT      DepartmentT?    @relation(fields: [departmentTId], references: [id])
+  departmentTId    String?
+  CategoryT        CategoryT?      @relation(fields: [categoryTId], references: [id])
+  categoryTId      String?
+
+  @@map("inquiry")
+}
+
+model Solution {
+  id         String   @id @default(uuid())
+  content    String
+  inquiry_id String
+  inquiry    Inquiry  @relation(fields: [inquiry_id], references: [id])
+  video_id   String?
+  created_at DateTime @default(now())
+
+  @@map("solution")
+}
+
+//
+model InquiryStatusT {
+  id         String    @id @default(uuid())
+  name       String    @unique()
+  created_at DateTime  @default(now())
+  inquiry    Inquiry[]
+
+  @@map("inquiry_status")
+}
+
+model PriorityT {
+  id         String    @id @default(uuid())
+  name       String    @unique()
+  created_at DateTime  @default(now())
+  inquiry    Inquiry[]
+
+  @@map("priority")
+}
+
+model DepartmentT {
+  id         String    @id @default(uuid())
+  name       String    @unique()
+  created_at DateTime  @default(now())
+  inquiry    Inquiry[]
+
+  @@map("department")
+}
+
+model CategoryT {
+  id         String    @id @default(uuid())
+  name       String    @unique()
+  created_at DateTime  @default(now())
+  inquiry    Inquiry[]
+
+  @@map("category")
+}
